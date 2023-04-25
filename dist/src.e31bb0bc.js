@@ -25828,48 +25828,22 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = Input;
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-/*
-INPUT Talimatlar
-
-Şu kısa videoyu izleyin:
-https://www.ergineer.com/assets/materials/a664dfe7-input.gif
-
-Bu INPUT'u oluşturmak için kaç adet state dilimine ihtiyacınız var? Başlamadan önce biraz üzerine düşünün!
-
-Evet sadece bir dilim yeterli! İçeride inputun değerini sürekli izleyeceğiz.
-Metnin royalblue veya crimson olacağı, input değerinin uzunluğundan elde edilebilir.
-
-ADIM 0:
-  Aşağıdaki bileşeni inceleyerek ve state hookunu import ederek başlayın.
-
-ADIM 1:
-  'inputDeğeri' ve 'setInputDeğeri' ikili state hookunu oluşturun.
-  Bu state boş bir string olarak yüklenecektir(initialize).
-
-ADIM 2:
-  'inputDeğeri' uzunluğu 10 karakteri geçerse renk crimson olacaktır.
-
-ADIM 3:
-  Bu <div /> içindeki inputa değer girildiğinde hepsini BÜYÜK HARFLERDE göstermesini nasıl sağlayabiliriz?
-
-ADIM 4:
-  Event nesnesinin içinde bulunan state'e input'un değerini atayın
-
-ADIM 5:
-  Input değerinin state'ını boşaltın. Reset hala çalışmıyor bir sonraki adımı inceleyin.
-
-ADIM 6:
-  Inputun başarılı bir şekilde resetlemesi için değerini state'ten almalıdır!
-  <input /> öğesine şu şekilde fazladan bir prop eklememiz gerekiyor: value={inputDeğeri}
-*/
-
+var _react = _interopRequireWildcard(require("react"));
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /* ADIM 0 */
 
 function Input() {
-  /* ADIM 1 */
-
+  var _useState = (0, _react.useState)(initialize),
+    _useState2 = _slicedToArray(_useState, 2),
+    inputDegeri = _useState2[0],
+    setInputDegeri = _useState2[1];
   var inputuDeğiştir = function inputuDeğiştir(evt) {
     // When the input changes, its whole value can be found inside the event object.
     // Log out the synthetic event object 'evt' and see for yourself.
@@ -25879,8 +25853,10 @@ function Input() {
   };
 
   var reset = function reset() {
+    setInputDegeri(initialize);
     /* ADIM 5 */
   };
+
   var stil = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
@@ -26090,20 +26066,14 @@ exports.default = Programcilar;
 exports.enIyilerListesi = void 0;
 var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-/*
-Programcilar Talimatları
-
-Şu kısa videoyu izleyin:
-https://www.ergineer.com/assets/materials/a664dfe7-programcilar.gif
-
-Bu bileşen, bir yandan programlama alanındaki öncülerin bir listesini,
-ve diğer tarafta o anda öne çıkan programcının idsini izler. Yani 2 adet state dilimi!
-Aynı zaman içinde yalnız bir harika programcıyı öne çıkarabiliriz.
-
-Yorumları takip edin.
-*/
-
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /* ADIM 0  */
+//import React, { useState } from "react";
 
 // Bu değişkeni YALNIZCA bir state dilimini başlatmak için kullanın!
 // JSX'te şu anda bu kuralı çiğneyen bir şey var...
@@ -26129,7 +26099,15 @@ var enIyilerListesi = [{
 }];
 exports.enIyilerListesi = enIyilerListesi;
 function Programcilar() {
+  var _useState = useState(enIyilerListesi),
+    _useState2 = _slicedToArray(_useState, 2),
+    programciListesi = _useState2[0],
+    setProgramciListesi = _useState2[1];
   // İki state dilimine ihtiyacımız olduğundan, state hooku iki kez kullanmamız gerekecek..
+  var _useState3 = useState(null),
+    _useState4 = _slicedToArray(_useState3, 2),
+    programciId = _useState4[0],
+    setProgramciId = _useState4[1];
   // Bir yanda programcılar listesi, diğer yanda öne çıkan programcının idsi.
 
   var oneCikaninIsmi = function oneCikaninIsmi() {
@@ -26142,7 +26120,7 @@ function Programcilar() {
   var stil = {
     fontSize: '1.5em',
     marginTop: '0.5em',
-    color: 'royalblue' // 🤔 kutlarken renk gold'a dönecek
+    color: programciId === null ? 'royalblue' : 'gold' // 🤔 kutlarken renk gold'a dönecek
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -26154,12 +26132,14 @@ function Programcilar() {
   // Şöyle diyebiliriz: "aa bu çalışıyor!" Ama programcilar bir state diliminden gelmiyorsa,
   // asla yeni programci ekleyemeyiz, programcilari düzenleyemeyiz ya da silemeyiz. Düzeltin!
   " */
-  enIyilerListesi.map(function (dev) {
+  programciListesi.map(function (dev) {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "programmer",
       key: dev.id
     }, dev.isim, " ", /*#__PURE__*/_react.default.createElement("button", {
-      onClick: function onClick() {/* burada dev.id 'yi öne çıkan id'ye atayın */}
+      onClick: function onClick() {
+        setProgramciId(dev.id);
+      }
     }, "Kutla"));
   })), /*#__PURE__*/_react.default.createElement("div", {
     id: "featured",
@@ -26208,7 +26188,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55295" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57712" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

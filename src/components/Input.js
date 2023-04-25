@@ -33,10 +33,10 @@ ADIM 6:
   <input /> öğesine şu şekilde fazladan bir prop eklememiz gerekiyor: value={inputDeğeri}
 */
 
-import React from 'react'; /* ADIM 0 */
+import React, {useState} from 'react'; /* ADIM 0 */
 
 export default function Input() {
-  /* ADIM 1 */
+   const [inputDegeri, setInputDegeri] = useState(initialize)
 	
   const inputuDeğiştir = evt => {
     // When the input changes, its whole value can be found inside the event object.
@@ -46,6 +46,7 @@ export default function Input() {
     /* ADIM 4 */
   };
   const reset = () => {
+    setInputDegeri(initialize)
     /* ADIM 5 */
   };
 

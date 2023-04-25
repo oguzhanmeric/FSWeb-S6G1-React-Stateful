@@ -13,6 +13,7 @@ Yorumları takip edin.
 
 import React from 'react';
 /* ADIM 0  */
+//import React, { useState } from "react";
 
 
 // Bu değişkeni YALNIZCA bir state dilimini başlatmak için kullanın!
@@ -28,7 +29,9 @@ export const enIyilerListesi = [
 ];
 
 export default function Programcilar() {
+  const [programciListesi, setProgramciListesi] = useState(enIyilerListesi)
   // İki state dilimine ihtiyacımız olduğundan, state hooku iki kez kullanmamız gerekecek..
+  const [programciId, setProgramciId] = useState(null);
   // Bir yanda programcılar listesi, diğer yanda öne çıkan programcının idsi.
 
 	
@@ -43,7 +46,8 @@ export default function Programcilar() {
   const stil = {
     fontSize: '1.5em',
     marginTop: '0.5em',
-    color: 'royalblue', // 🤔 kutlarken renk gold'a dönecek
+    color: programciId === null ? 'royalblue':'gold' // 🤔 kutlarken renk gold'a dönecek
+
   };
 
   return (
@@ -55,9 +59,13 @@ export default function Programcilar() {
           // Şöyle diyebiliriz: "aa bu çalışıyor!" Ama programcilar bir state diliminden gelmiyorsa,
           // asla yeni programci ekleyemeyiz, programcilari düzenleyemeyiz ya da silemeyiz. Düzeltin!
           " */
-          enIyilerListesi.map(dev =>
+          programciListesi.map(dev =>
             <div className='programmer' key={dev.id}>
-              {dev.isim} <button onClick={() => {/* burada dev.id 'yi öne çıkan id'ye atayın */ }}>Kutla</button>
+              {dev.isim} <button onClick={() => {
+                setProgramciId(dev.id)
+               }}>
+                Kutla
+               </button>
             </div>
           )
         }
